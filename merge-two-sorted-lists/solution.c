@@ -15,7 +15,8 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
     head_two->next = l2;
 
     while (head_one->next) {
-        for (index = head_two; index->next; index = index->next)
+        index = head_two;
+        for (; index->next; index = index->next)
             if (index->next->val > head_one->next->val)
                 break;
         link = head_one->next;
