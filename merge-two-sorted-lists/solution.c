@@ -23,7 +23,6 @@ struct ListNode* mergeTwoLists(struct ListNode* l1, struct ListNode* l2) {
         head_one->next = head_one->next->next;
         link->next = index->next;
         index->next = link;
-        printf("here\n");
     }
 
     link = head_two->next;
