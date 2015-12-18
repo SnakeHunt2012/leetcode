@@ -2,11 +2,11 @@
 
 void rotate(int* nums, int numsSize, int k) {
     int head, tail;
+    
     k %= numsSize;
-    if (k <= 0)
+    if (!k)
         return;
-    if (k >= numsSize)
-        return;
+    
     for (head = 0, tail = numsSize - 1; head < tail; ++head, --tail)
         exch(nums[head], nums[tail]);
     for (head = 0, tail = k - 1; head < tail; ++head, --tail)
