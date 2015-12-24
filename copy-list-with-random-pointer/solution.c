@@ -16,10 +16,9 @@ struct RandomListNode *copyRandomList(struct RandomListNode *head) {
         node->next = link->next;
         link->next = node;
     }
-    for (link = head, node = head->next; node->next; link = node->next, node = link->next) {
-        node->random = link->random ? link->random->next : NULL;
-    }
-    node->random = link->random ? link->random->next : NULL;
+
+    for (link = head; link; link = link->next->next)
+        link->next->random = link->random ? link->random->next : NULL;
     
     link = head;
     head = head->next;
