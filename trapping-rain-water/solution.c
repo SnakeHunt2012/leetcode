@@ -1,23 +1,20 @@
 int trap(int* height, int heightSize) {
-    int i, j, mark, area = 0, *scale = (int *) malloc((heightSize + 1) * sizeof(int));
-    for (i = scale[0] = 0; i < heightSize; ++i) {
-        scale[i] = (scale[i] < height[i]) ? height[i] : scale[i];
-        scale[i + 1] = height[i];
-    }
-
+    int i, j, mark, area = 0;
     for (mark = i = 0; i < heightSize; ++i)
-        if (scale[i] >= scale[mark]) {
-            area += (i - mark) * scale[mark];
+        if (height[i] > height[mark]) {
+            area += (i - mark) * height[mark];
             mark = i;
         }
 
     i = mark;
     
-    for (mark = j = heightSize; j >= i; --j)
-        if (scale[j] >= scale[mark]) {
-            area += (mark - j) * scale[mark];
+    for (mark = j = heightSize - 1; j >= i; --j)
+        if (height[j] > height[mark]) {
+            area += (mark - j) * height[mark];
             mark = j;
         }
+
+    area += (mark - i + 1) * height[mark];
 
     for (i = 0; i < heightSize; ++i)
         area -= height[i];
