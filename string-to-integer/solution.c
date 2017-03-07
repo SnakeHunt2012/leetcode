@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
 
@@ -70,18 +67,4 @@ int myAtoi(char* str) {
             return INT_MIN;
     }
     return sign * (int) integer;
-}
-
-int main() {
-    printf("1234: %d\n", myAtoi("1234"));
-    printf("+1234:%d\n", myAtoi("+1234"));
-    printf("-1234:%d\n", myAtoi("-1234"));
-    printf("+-2: %d\n", myAtoi("+-2"));
-    printf("  -0012a42: %d\n", myAtoi("  -0012a42"));
-    printf("    +0a32: %d\n", myAtoi("    +0a32"));
-    printf("   +0 123: %d\n", myAtoi("   +0 123"));
-    printf("2147483648: %d\n", myAtoi("2147483648"));
-    printf("abc: %d\n", myAtoi("abc"));
-    printf("0: %d\n", myAtoi("0"));
-    printf(" - 123: %d\n", myAtoi(" - 123"));
 }
